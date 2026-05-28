@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+<title>YOUNG JAE &amp; HEEJUN</title>
+<meta name="description" content="2026.05.30 SAT 12:00 PM · 그랜드 워커힐 서울 비스타홀">
+
+<!-- 배포 시점에 2.jpg 는 별도 압축 권장 (현재 약 10MB) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:           #111111;
+  --canvas:        #ffffff;
+  --soft-cloud:    #f5f5f5;
+  --hairline:      #cacacb;
+  --hairline-soft: #e5e5e5;
+  --charcoal:      #39393b;
+  --mute:          #707072;
+  --stone:         #9e9ea0;
+
+  --r-lg:   30px;
+  --r-full: 9999px;
+
+  --s-xs: 4px;
+  --s-sm: 8px;
+  --s-md: 12px;
+  --s-lg: 18px;
+  --s-xl: 24px;
+  --s-xxl: 30px;
+  --s-section: 48px;
+}
+
+html, body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 430px;
+  background: var(--canvas);
+  min-height: 100vh;
+}
+
+/* ───────────────── typography utility ───────────────── */
+.display-campaign {
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.heading-xl {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--ink);
+}
+.heading-md {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.body-md     { font-size: 16px; font-weight: 400; line-height: 1.8; color: var(--charcoal); }
+.body-strong { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--ink); }
+.caption-md  { font-size: 14px; font-weight: 500; line-height: 1.5; color: var(--ink); }
+.caption-sm  { font-size: 12px; font-weight: 500; line-height: 1.5; color: var(--mute); }
+
+.mute     { color: var(--mute); }
+.charcoal { color: var(--charcoal); }
+
+/* ───────────────── 1. hero campaign tile ───────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--soft-cloud);
+  overflow: hidden;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+}
+.hero .headline {
+  position: absolute;
+  left: var(--s-xl);
+  bottom: var(--s-xl);
+  pointer-events: none;
+}
+.hero .headline span {
+  display: block;
+}
+
+.hero-meta {
+  padding: var(--s-section) var(--s-xl);
+  border-bottom: 1px solid var(--hairline-soft);
+  text-align: center;
+}
+.hero-meta .date,
+.hero-meta .venue {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-transform: none;
+}
+.hero-meta .date { margin-bottom: var(--s-sm); }
+
+/* ───────────────── 2. family lockup ───────────────── */
+.family {
+  padding: var(--s-section) var(--s-xl);
+  text-align: center;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.family-row {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: var(--s-sm);
+  flex-wrap: wrap;
+}
+.family-row + .family-row { margin-top: var(--s-xl); }
+.family-row .parents,
+.family-row .role { color: var(--mute); font-size: 12px; font-weight: 500; letter-spacing: 0.02em; }
+.family-row .role { margin: 0 var(--s-xs); }
+.family-row .name { font-size: 16px; font-weight: 500; color: var(--ink); letter-spacing: 0.03em; }
+
+/* ───────────────── 3. message ───────────────── */
+.message {
+  padding: var(--s-section) var(--s-xl);
+  text-align: center;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.leaf-deco {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--s-xxl);
+}
+.leaf-deco img {
+  width: 240px;
+  max-width: 80%;
+  height: auto;
+  display: block;
+}
+.message p { color: var(--charcoal); font-size: 16px; line-height: 1.9; }
+.message p + p { margin-top: var(--s-xl); }
+.message .sign {
+  margin-top: var(--s-xxl);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+/* ───────────────── gift photo divider ───────────────── */
+.gift-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--soft-cloud);
+  overflow: hidden;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.gift-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ───────────────── 4. gift accounts ───────────────── */
+.gift { padding: var(--s-section) var(--s-xl); border-bottom: 1px solid var(--hairline-soft); }
+.gift .heading-xl { text-align: center; margin-bottom: var(--s-xxl); }
+
+.disclosure {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.disclosure-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--s-xl) 0;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--canvas);
+}
+.chev {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--ink);
+  transition: transform 0.2s ease;
+}
+.chev.open { transform: rotate(180deg); }
+
+.disclosure-body {
+  display: none;
+  background: var(--soft-cloud);
+  padding: var(--s-xl);
+}
+.disclosure-body.open { display: block; }
+.acct-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--s-lg);
+}
+.acct-name { font-size: 16px; font-weight: 500; color: var(--ink); }
+.acct-num  { font-size: 14px; color: var(--charcoal); letter-spacing: 0.02em; }
+
+.btn-outline {
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.btn-outline:active { background: var(--hairline-soft); transform: scale(0.98); }
+
+/* ───────────────── footer ───────────────── */
+.footer {
+  padding: var(--s-section) var(--s-xl);
+  text-align: center;
+  color: var(--mute);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+}
+
+/* ───────────────── reveal on scroll ───────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 600px) {
+  .display-campaign { font-size: 80px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 1. HERO -->
+  <section class="hero reveal">
+    <img
+      src="./2-960.webp"
+      srcset="./2-480.webp 480w, ./2-960.webp 960w, ./2-1440.webp 1440w"
+      sizes="(max-width: 430px) 100vw, 430px"
+      alt="전영재 · 고희준 웨딩 포트레이트"
+      loading="eager"
+      fetchpriority="high"
+      width="4123" height="5772">
+    <div class="headline display-campaign">
+      <span>YOUNG JAE</span>
+      <span>&amp; HEEJUN</span>
+    </div>
+  </section>
+
+  <div class="hero-meta reveal">
+    <div class="date">2026년 5월 30일 토요일 오후 12시</div>
+    <div class="venue">그랜드 워커힐 서울 비스타홀</div>
+  </div>
+
+  <!-- 2. FAMILY -->
+  <section class="family reveal">
+    <div class="family-row">
+      <span class="parents">전하성 · 김명자</span>
+      <span class="role">의 아들</span>
+      <span class="name">전영재</span>
+    </div>
+    <div class="family-row">
+      <span class="parents">고경훈 · 하명숙</span>
+      <span class="role">의 딸</span>
+      <span class="name">고희준</span>
+    </div>
+  </section>
+
+  <!-- 3. MESSAGE -->
+  <section class="message reveal">
+    <div class="leaf-deco" aria-hidden="true">
+      <img src="./27a28ff5c2c37f90fdb1d0055dfcd61a.jpg?v=2" alt="">
+    </div>
+    <p>꽃보다 아름다운 계절,<br>평생을 함께 하기로 했습니다.</p>
+    <p>저희 두 사람이 사랑이라는 이름으로<br>소중한 분들과 이 순간을 나누고자 합니다.</p>
+    <p>따뜻한 마음으로 축복해 주시면 감사하겠습니다.</p>
+    <p class="sign">신랑 전영재 · 신부 고희준</p>
+  </section>
+
+  <!-- gift photo -->
+  <section class="gift-photo reveal">
+    <img
+      src="./IMG_0578--960.webp"
+      srcset="./IMG_0578--480.webp 480w, ./IMG_0578--960.webp 960w, ./IMG_0578--1440.webp 1440w"
+      sizes="(max-width: 430px) 100vw, 430px"
+      alt=""
+      loading="lazy"
+      width="4094" height="5731">
+  </section>
+
+  <!-- 4. GIFT -->
+  <section class="gift reveal">
+    <div class="heading-xl">마음 전하실 곳</div>
+
+    <div class="disclosure">
+      <div class="disclosure-head" onclick="toggleAccount(this)">
+        <span>신부측</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="disclosure-body">
+        <div class="acct-row">
+          <span class="acct-name">고희준</span>
+          <span class="acct-num">카카오뱅크 3333-1834-10642</span>
+        </div>
+        <button class="btn-outline" type="button" onclick="copyAcct('3333183410642', this)">
+          계좌번호 복사하기
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <div class="footer reveal">YOUNG JAE &amp; HEEJUN · 26.05.30</div>
+
+</div>
+
+<script>
+  function toggleAccount(head) {
+    const body = head.nextElementSibling;
+    const chev = head.querySelector('.chev');
+    const open = body.classList.toggle('open');
+    chev.classList.toggle('open', open);
+  }
+
+  function copyAcct(num, btn) {
+    const original = btn.textContent.trim();
+    const done = () => {
+      btn.textContent = '복사 완료';
+      setTimeout(() => { btn.textContent = original; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(num).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
+    function fallback() {
+      const t = document.createElement('textarea');
+      t.value = num;
+      t.style.position = 'fixed';
+      t.style.opacity = '0';
+      document.body.appendChild(t);
+      t.focus(); t.select();
+      try { document.execCommand('copy'); done(); } catch (e) { /* noop */ }
+      document.body.removeChild(t);
+    }
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
